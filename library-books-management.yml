@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: library-books-management
+  server:
+    port: 8100
+  datasource:
+    url: jdbc:mysql://localhost:3306/library_microservice
+    username: vidya  # Consider using secret management for passwords in production
+    password: 123    # Consider using secret management for passwords in production
+  jpa:
+    hibernate:
+      ddl-auto: update
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888  # Assuming this is the same for all clients
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
